@@ -33,12 +33,11 @@
               <li><%= link_to "Tasks" %></li>
 
 
-
-  </ul>
-  <ul class="nav navbar-nav navbar-right">
-    <li><p class="nav navbar-text">Logged as <%= current_user.email %></p></li>
-    <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-  </ul>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><p class="nav navbar-text">Logged as <%= current_user.email %></p></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+            </ul>
   <% end %>
   </div>
   </div>
