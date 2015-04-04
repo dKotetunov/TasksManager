@@ -12,11 +12,14 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(params[:project])
     @moderator = User.new(email: params[:moderator_email], password: params[:moderator_password], role: Role.moderator)
+    @project = Project.new(params[:project])
 
-    if @project.save
-
+    if @project.valid? && @moderator.valid?
+      @moderator.skip_confirmation!
+      @moderator.save
+      @project.user = @moderator
+      @project.save
       redirect_to projects_path
     else
       render 'new'

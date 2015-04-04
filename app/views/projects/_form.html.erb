@@ -1,0 +1,20 @@
+<div class='row'>
+  <div class='col-lg-6'>
+    <%= semantic_form_for project do |f| %>
+      <%= f.inputs do %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <li>
+          <%= label_tag :moderator_email %>
+          <%= text_field_tag :moderator_email %>
+        </li>
+        <li>
+          <%= label_tag :moderator_password %>
+          <%= text_field_tag :moderator_password %>
+        </li>
+      <% end %>
+
+      <%= f.actions %>
+    <% end %>
+  </div>
+</div>
