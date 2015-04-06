@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
 
     if @project.update_attributes(params[:project])
-      redirect_to @project
+      redirect_to projects_path
     else
       render 'edit'
     end
