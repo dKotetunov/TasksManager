@@ -4,8 +4,8 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.for_project(@project.id)
     @tasks_done = @tasks.done
-    @task_started = @tasks.started
-    @task_not_started = @tasks.not_started
+    @tasks_started = @tasks.started
+    @tasks_not_started = @tasks.not_started
   end
 
   def new

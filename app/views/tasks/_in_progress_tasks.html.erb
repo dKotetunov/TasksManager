@@ -1,0 +1,19 @@
+<div id="in_progress_tasks">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <td></td>
+      <td>In progress</td>
+      <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <% @tasks_started.each do |task| %>
+        <tr>
+          <td><%= task.name %></td>
+          <td><%= link_to 'Finish', :class => 'btn btn-mini' %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,19 @@
+<div id="done_tasks">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>
+      <td></td>
+      <td>Done</td>
+      <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <% @tasks_done.each do |task| %>
+        <tr>
+          <td><%= task.name %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
