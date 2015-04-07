@@ -1,3 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "formtastic-bootstrap";
+
+.container {
+  width: 970px !important;
+}
