@@ -4,14 +4,8 @@
       <%= f.inputs do %>
         <%= f.input :name %>
         <%= f.input :description %>
-        <li>
-          <%= label_tag :moderator_email %>
-          <%= text_field_tag :moderator_email %>
-        </li>
-        <li>
-          <%= label_tag :moderator_password %>
-          <%= text_field_tag :moderator_password %>
-        </li>
+        <%= f.input :moderator_email %>
+        <%= f.input :moderator_password %>
       <% end %>
 
       <%= f.actions %>

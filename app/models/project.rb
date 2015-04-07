@@ -5,4 +5,5 @@ class Project < ActiveRecord::Base
   validates_presence_of :name
 
   attr_accessible :name, :description, :user
+  attr_accessor :moderator_email, :moderator_password 
 end
