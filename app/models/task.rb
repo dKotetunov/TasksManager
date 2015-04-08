@@ -7,9 +7,15 @@ class Task < ActiveRecord::Base
   STARTED = 'started'
   NOT_STARTED = 'not_started'
 
-  scope :for_project, ->(project_id) { where(:project_id => project_id)}
-  scope :done, -> {where(:status => 'done')}
-  scope :started, ->{where(:status =>'started')}
-  scope :not_started, ->{where(:status =>'not_started')}
+  before_create :set_default_status
 
+  scope :for_project, ->(project_id) { where(project_id: project_id) }
+  scope :done, -> { where(status: DONE) }
+  scope :started, -> { where(status: STARTED) }
+  scope :not_started, -> { where(status: NOT_STARTED) }
+
+  private
+  def set_default_status
+    self.status = NOT_STARTED
+  end
 end

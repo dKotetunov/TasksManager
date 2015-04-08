@@ -17,14 +17,14 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = @project.task.create(params[:task])
-    redirect_to projects_tasks_path
+    @task = @project.tasks.create(params[:task])
+    redirect_to project_tasks_path
   end
 
   def destroy
     @task = @project.task.find(params[:id])
     @task.destroy
-    redirect_to projects_tasks_path
+    redirect_to project_tasks_path
   end
 
   private

@@ -1,19 +1,16 @@
 <div id="done_tasks">
-  <table class="table table-bordered">
-    <thead>
-    <tr>
-      <th>
-      <td></td>
-      <td>Done</td>
-      <td></td>
-    </tr>
-    </thead>
-    <tbody>
-    <% tasks.each do |task| %>
-        <tr>
-          <td><%= task.name %></td>
-        </tr>
-    <% end %>
-    </tbody>
-  </table>
+  <div id="new_tasks">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        Done
+      </div>
+      <div class="panel-body">
+        <% tasks.each do |task| %>
+            <ul class="list-group">
+              <li class="list-group-item"><%= task.name %></li>
+            </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

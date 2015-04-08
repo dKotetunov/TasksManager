@@ -1,20 +1,17 @@
 <div id="new_tasks">
-  <table class="table table-bordered">
-    <thead>
-    <tr>
-      <td>New</td>
-    </tr>
-    </thead>
-    <tbody>
-    <% tasks.each do |task| %>
-        <tr>
-          <td><%= task.name %></td>
-          <td><%= link_to 'Start', :class => 'btn btn-mini' %></td>
-          <td><%= link_to 'Edit', :class => 'btn btn-mini' %></td>
-        </tr>
-    <% end %>
-    </tbody>
-  </table>
-
-  <%= link_to 'New task',new_project_task_path, :class => 'btn btn-primary' %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      New
+      <%= link_to new_project_task_path, class: 'color-plus pull-right' do %>
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      <% end %>
+    </div>
+    <div class="panel-body">
+      <% tasks.each do |task| %>
+          <ul class="list-group">
+            <li class="list-group-item"><%= task.name %></li>
+          </ul>
+      <% end %>
+    </div>
+  </div>
 </div>
