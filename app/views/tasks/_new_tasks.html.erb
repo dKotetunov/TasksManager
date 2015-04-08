@@ -9,7 +9,10 @@
     <div class="panel-body">
       <% tasks.each do |task| %>
           <ul class="list-group">
-            <li class="list-group-item"><%= task.name %></li>
+            <li class="list-group-item">
+              <%= task.name %>
+              <%= link_to 'Start',project_task_start_path(@project,task,rus: 123, abc: 'str'), :class => 'btn btn-mini btn-primary' %>
+            </li>
           </ul>
       <% end %>
     </div>
