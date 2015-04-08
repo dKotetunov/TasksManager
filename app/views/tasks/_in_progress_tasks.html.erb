@@ -1,0 +1,16 @@
+<div id="in_progress_tasks">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      In progress
+    </div>
+    <div class="panel-body">
+      <% tasks.each do |task| %>
+          <ul class="list-group">
+            <li class="list-group-item"><%= task.name %>
+              <%= link_to 'Finish', :class => 'btn btn-mini' %>
+            </li>
+          </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

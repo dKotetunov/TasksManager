@@ -1,0 +1,17 @@
+<div id="new_tasks">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      New
+      <%= link_to new_project_task_path, class: 'color-plus pull-right' do %>
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      <% end %>
+    </div>
+    <div class="panel-body">
+      <% tasks.each do |task| %>
+          <ul class="list-group">
+            <li class="list-group-item"><%= task.name %></li>
+          </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

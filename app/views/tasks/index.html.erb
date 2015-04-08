@@ -1,2 +1,11 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<div class="row">
+  <div class='col-md-4'>
+    <%= render partial: 'done_tasks', locals: {tasks: @tasks_done} %>
+  </div>
+  <div class='col-md-4'>
+    <%= render partial: 'in_progress_tasks', locals: {tasks: @tasks_started} %>
+  </div>
+  <div class='col-md-4'>
+    <%= render partial: 'new_tasks', locals: {tasks: @tasks_not_started} %>
+  </div>
+</div>

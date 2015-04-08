@@ -1,0 +1,16 @@
+<div id="done_tasks">
+  <div id="new_tasks">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        Done
+      </div>
+      <div class="panel-body">
+        <% tasks.each do |task| %>
+            <ul class="list-group">
+              <li class="list-group-item"><%= task.name %></li>
+            </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

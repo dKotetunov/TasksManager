@@ -1,3 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "formtastic-bootstrap";
+
+.container {
+  width: 970px !important;
+}
+
+.color-plus{
+  color: #000000;
+}
