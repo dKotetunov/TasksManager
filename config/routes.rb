@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :tasks do
-      put :start
+      patch :start
+      patch :finish
     end
   end
 

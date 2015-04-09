@@ -1,11 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "formtastic-bootstrap";
+@import "tasks";
 
 .container {
   width: 970px !important;
 }
 
-.color-plus{
+.inverse-link{
   color: #000000;
 }

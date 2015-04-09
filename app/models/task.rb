@@ -14,7 +14,16 @@ class Task < ActiveRecord::Base
   scope :started, -> { where(status: STARTED) }
   scope :not_started, -> { where(status: NOT_STARTED) }
 
+  def start!
+    update_attribute(:status, STARTED)
+  end
+
+  def finish!
+    update_attribute(:status, DONE)
+  end
+
   private
+
   def set_default_status
     self.status = NOT_STARTED
   end
