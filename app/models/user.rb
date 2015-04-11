@@ -7,4 +7,14 @@ class User < ActiveRecord::Base
 
   belongs_to :role
   has_many :tasks
+
+  delegate :admin?, :moderator?, :simple_user?, to: :role
+
+  before_create :set_default_role
+
+  private
+
+  def set_default_role
+    self.role ||= Role.user
+  end
 end

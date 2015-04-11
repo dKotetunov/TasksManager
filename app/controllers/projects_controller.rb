@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @projects = Project.all
   end
@@ -12,7 +14,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @moderator = User.new(email: params[:moderator_email], password: params[:moderator_password], role: Role.moderator)
+    @moderator = User.new(email: params[:project][:moderator_email], password: params[:project][:moderator_password], role: Role.moderator)
     @project = Project.new(params[:project])
 
     if @project.valid? && @moderator.valid?

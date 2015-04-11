@@ -12,4 +12,20 @@ class Role < ActiveRecord::Base
   def self.moderator
     find_by_name(MODERATOR)
   end
+
+  def self.user
+    find_by_name(USER)
+  end
+
+  def admin?
+    name == ADMIN
+  end
+
+  def moderator?
+    name == MODERATOR
+  end
+
+  def simple_user?
+    name == USER
+  end
 end

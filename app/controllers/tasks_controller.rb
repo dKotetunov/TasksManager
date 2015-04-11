@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+ load_and_authorize_resource
+
   before_action :set_project
   before_action :set_task, only: [:start, :finish, :destroy, :edit, :update]
 
@@ -19,6 +21,7 @@ class TasksController < ApplicationController
   end
 
   def start
+    authorize! :start, @task
     @task.start!
     redirect_to project_tasks_path
   end
@@ -29,6 +32,7 @@ class TasksController < ApplicationController
   end
 
   def finish
+    authorize! :finish, @task
     @task.finish!
     redirect_to project_tasks_path
   end
