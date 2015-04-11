@@ -10,8 +10,9 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :profiles
-  
+
   devise_for :users
   get 'users/index'
 
