@@ -10,9 +10,9 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users do
-    resources :profiles
-  end
+  resources :profiles
+  
+  devise_for :users
   get 'users/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
