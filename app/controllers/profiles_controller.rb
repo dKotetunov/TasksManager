@@ -1,21 +1,22 @@
 class ProfilesController < ApplicationController
-  before_action :set_user
+  before_action :set_profile, only :show
   def show
-    @profile = @user.profile
+    @profile = current_user.profile
   end
 
   def edit
-    @profile = @user.profile
+    @profile = current_user.profile
   end
+
   def update
-    @profile = @user.profile
+    @profile = current_user.profile
     @profile.update_attributes(params[:profile])
   end
 
 
   private
 
-  def set_user
-    @user = User.find(params[:user_id])
+  def set_profile
+    @profile = Profile.find(params[:id])
   end
 end
