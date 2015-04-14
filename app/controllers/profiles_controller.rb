@@ -13,10 +13,6 @@ class ProfilesController < ApplicationController
 
 
   private
-  
-  def set_user
-    @user = User.find(params[:user_id])
-  end
 
   def set_profile
     @profile = Profile.find(params[:id])

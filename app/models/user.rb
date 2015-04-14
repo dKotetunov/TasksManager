@@ -12,10 +12,15 @@ class User < ActiveRecord::Base
   delegate :admin?, :moderator?, :simple_user?, to: :role
 
   before_create :set_default_role
+  after_create :set_default_profile
 
   private
 
   def set_default_role
     self.role ||= Role.user
+  end
+
+  def set_default_profile
+    self.profile ||=Profile.default_profile
   end
 end
