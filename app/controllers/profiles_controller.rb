@@ -1,6 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile
-  before_action :set_user
+  before_action :set_profile, only: :show
 
   def edit
     @profile = current_user.profile
@@ -10,7 +9,6 @@ class ProfilesController < ApplicationController
     @profile = current_user.profile
     @profile.update_attributes(params[:profile])
   end
-
 
   private
 

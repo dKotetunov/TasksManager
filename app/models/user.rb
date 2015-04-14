@@ -21,6 +21,6 @@ class User < ActiveRecord::Base
   end
 
   def set_default_profile
-    self.create_profile ||=Profile.default_profile
+    self.create_profile
   end
 end
