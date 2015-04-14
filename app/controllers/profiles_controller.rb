@@ -7,8 +7,8 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    if @profile = current_user.profile
-      @profile.update_attributes(params[:profile])
+    @profile = current_user.profile
+    if @profile.update_attributes(params[:profile])
       redirect_to profile_path
     else
       render 'edit'

@@ -1,15 +1,15 @@
 <div class='row'>
   <div class='col-lg-6'>
     <%= semantic_form_for @profile do |f| %>
-        <%= f.inputs do %>
-            <%= f.input :first_name %>
-            <%= f.input :last_name %>
-            <%= f.input :gender, :as => :radio, :collection => ["Male", "Female"] %>
-        <% end %>
-        <%= f.actions do %>
-            <%= f.action :submit, :as => :button, button_html: {class: "btn btn-primary"} %>
-            <%= f.action :cancel, :as => :link, button_html: {class: "btn btn-default"} %>
-        <% end %>
+      <%= f.inputs do %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :gender, as: 'radio', collection:  ["Male", "Female"] %>
+      <% end %>
+      <%= f.actions do %>
+        <%= f.action :submit, as: 'button', button_html: {class: "btn btn-primary"} %>
+        <%= f.action :cancel, as: 'link', button_html: {class: "btn btn-default"} %>
+      <% end %>
     <% end %>
   </div>
 </div>
