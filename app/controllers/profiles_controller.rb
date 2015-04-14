@@ -1,8 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only :show
-  def show
-    @profile = current_user.profile
-  end
+  before_action :set_profile
 
   def edit
     @profile = current_user.profile
