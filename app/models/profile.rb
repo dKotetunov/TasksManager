@@ -3,9 +3,4 @@ class Profile < ActiveRecord::Base
 
   belongs_to :user
 
-  DEFAULT_PROFILE = 'first name','last name'
-
-  def self.default_profile
-    find_by_first_name(DEFAULT_PROFILE)
-  end
 end
