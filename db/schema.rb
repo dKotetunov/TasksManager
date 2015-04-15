@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411081539) do
+ActiveRecord::Schema.define(version: 20150415122139) do
 
   create_table "profiles", force: true do |t|
     t.string   "first_name"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20150411081539) do
     t.integer  "project_id"
     t.string   "status"
     t.string   "user_id"
+    t.integer  "hours"
+    t.datetime "started_at"
   end
 
   add_index "tasks", ["project_id"], name: "index_tasks_on_project_id", using: :btree
