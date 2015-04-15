@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415122139) do
+ActiveRecord::Schema.define(version: 20150415134140) do
 
   create_table "profiles", force: true do |t|
     t.string   "first_name"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150415122139) do
     t.string   "description"
     t.integer  "project_id"
     t.string   "status"
-    t.string   "user_id"
+    t.integer  "user_id"
     t.integer  "hours"
     t.datetime "started_at"
   end
