@@ -15,7 +15,7 @@ class Task < ActiveRecord::Base
   scope :not_started, -> { where(status: NOT_STARTED) }
 
   def start!
-    update_attribute(:status, STARTED)
+    update_attributes(status: STARTED,started_at: Time.now.to_datetime)
   end
 
   def finish!
