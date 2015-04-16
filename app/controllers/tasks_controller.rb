@@ -23,6 +23,7 @@ class TasksController < ApplicationController
   def start
     authorize! :start, @task
     @task.start!
+    @task.update_attribute(:started_at, Time.now.to_datetime)
     redirect_to project_tasks_path
   end
 
