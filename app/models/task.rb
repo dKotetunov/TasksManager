@@ -2,7 +2,7 @@ class Task < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
 
-  attr_accessible :name, :description, :status, :project_id, :user_id
+  attr_accessible :name, :description, :status, :project_id, :user_id, :hours, :started_at
   DONE = 'done'
   STARTED = 'started'
   NOT_STARTED = 'not_started'
