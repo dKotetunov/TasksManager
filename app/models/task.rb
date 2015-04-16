@@ -15,10 +15,11 @@ class Task < ActiveRecord::Base
   scope :not_started, -> { where(status: NOT_STARTED) }
 
   def start!
-    update_attributes(status: STARTED,started_at: Time.now.to_datetime)
+    update_attributes(status: STARTED,started_at: Time.now.strftime('%Y-%m-%d %H:%M'))
   end
 
   def finish!
+    @hours = ((updated_at - started_at) / 1.hour).round
     update_attribute(:status, DONE)
   end
 
