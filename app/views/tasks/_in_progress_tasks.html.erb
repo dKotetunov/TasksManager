@@ -8,7 +8,7 @@
           <ul class="list-group">
             <li class="list-group-item"><%= task.name %>
               <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="<%= task.progress %>" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">
+                <div class="progress-bar" role="progressbar" aria-valuenow="<%= task.progress %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= task.progress %>%;">
                   <%= task.progress %>%
                 </div>
               </div>

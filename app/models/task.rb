@@ -23,15 +23,7 @@ class Task < ActiveRecord::Base
   end
 
   def progress
-    done_hours = (((Time.now - started_at)/1.day - 1).to_i)*8
-    if started_at.hour < 17 && started_at.hour > 9
-      done_hours += 17 - started_at.hour
-    end
-    if Time.now.hour < 17 && Time.now.hour > 9
-      done_hours += Time.now.hour - 9
-    end
-    done_progress = (done_hours * 100 / hours).round
-    done_progress < 100 ? 100 : done_progress
+    Progress.call(started_at, hours)
   end
 
   private
