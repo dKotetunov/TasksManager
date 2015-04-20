@@ -7,8 +7,10 @@
       <div class="panel-body">
         <% tasks.each do |task| %>
             <ul class="list-group">
-              <li class="list-group-item"><%= task.name %>
-                                         (<%= link_to (task.user.initials), profile_path(task.user.profile) %>)</li>
+              <li class="list-group-item">
+                <%= task.name %>
+                (<%= link_to (task.user.initials), profile_path(task.user.profile) %>)
+              </li>
             </ul>
         <% end %>
       </div>
