@@ -7,7 +7,7 @@
       <div class="panel-body">
         <% tasks.each do |task| %>
             <ul class="list-group">
-              <li class="list-group-item"><%= task.name %></li>
+              <li class="list-group-item"><%= task.name %>(<%= task.user.initials %>)</li>
             </ul>
         <% end %>
       </div>
