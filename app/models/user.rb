@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   before_create :set_default_role
   after_create :set_default_profile
 
+  scope :simple_user, -> { Role.user }
+
   private
 
   def set_default_role

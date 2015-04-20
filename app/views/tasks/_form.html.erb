@@ -5,7 +5,7 @@
             <%= f.input :name %>
             <%= f.input :description %>
             <%= f.input :hours %>
-            <%= f.input :user, :as => :select, :collection => User.all.map{|u| [u.fullname, u.id]} %>
+            <%= f.input :user, :as => :select, :collection => User.all.map{|u| [u.fullname, u.id, u.simple_user]} %>
         <% end %>
         <%= f.actions do %>
             <%= f.action :submit, :as => :button, button_html: { class: "btn btn-primary" } %>
