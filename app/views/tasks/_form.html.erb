@@ -5,9 +5,7 @@
             <%= f.input :name %>
             <%= f.input :description %>
             <%= f.input :hours %>
-            <%= f.semantic_fields_for :profile do |profile| %>
-                <%= profile.input :name  %>
-            <% end %>
+            <%= f.input :user, collection: User.profile.fullname %>
         <% end %>
         <%= f.actions do %>
             <%= f.action :submit, :as => :button, button_html: { class: "btn btn-primary" } %>

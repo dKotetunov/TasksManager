@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_one :profile
 
   delegate :admin?, :moderator?, :simple_user?, to: :role
-
+  delegate :fullname, to :profile
   before_create :set_default_role
   after_create :set_default_profile
 
