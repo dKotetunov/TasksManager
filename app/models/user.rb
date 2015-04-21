@@ -10,9 +10,11 @@ class User < ActiveRecord::Base
   has_one :profile
 
   delegate :admin?, :moderator?, :simple_user?, to: :role
-
+  delegate :fullname, :initials, to: :profile
   before_create :set_default_role
   after_create :set_default_profile
+
+  scope :simple, -> { where(role_id: Role.user.id) }
 
   private
 
