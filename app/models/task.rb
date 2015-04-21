@@ -1,6 +1,7 @@
 class Task < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
+  has_many :comments
 
   attr_accessible :name, :description, :status, :project_id, :user_id, :hours, :started_at
   DONE = 'done'
