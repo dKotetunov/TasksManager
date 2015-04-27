@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @task.comments.create(params[:comment])
-    redirect_to project_task_path(@comment.project, @comment.task, @comment)
+    redirect_to project_task_path(@comment.project, @comment.task)
   end
 
   def destroy

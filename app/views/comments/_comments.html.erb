@@ -11,7 +11,11 @@
     <% end %>
   </div>
 </div>
+<table>
     <% @comments.each do |comment| %>
-    <td><%= comment.text %></td>
-    
+    <tr>
+      <td><%= comment.text %></td>
+    </tr>
+
     <% end %>
+</table>
