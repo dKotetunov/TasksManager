@@ -23,9 +23,10 @@
                         data: { confirm: 'Are you sure?'}, :class => 'btn btn-mini btn-danger'  %></td>
            <% end %>
         </tr>
-  <% end %>
       <% end %>
+    <% end %>
   </tbody>
 </table>
-
-<%= link_to 'New project', new_project_path, :class => 'btn btn-primary' %>
+<% if can? :create, Project %>
+  <%= link_to 'New project', new_project_path, :class => 'btn btn-primary' %>
+<% end %>
