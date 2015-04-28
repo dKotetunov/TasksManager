@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_task
   before_action :set_comment, only: [:show, :destroy, :update, :edit]
   def create
