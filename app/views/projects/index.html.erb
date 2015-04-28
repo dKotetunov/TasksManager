@@ -13,7 +13,9 @@
     <% if can? :read, project %>
       <tr>
         <td><%= link_to project.name, project_tasks_path(project) %>
-          <span class="badge"><% project.tasks.count %></span>
+          <span title="Done tasks" class="badge alert-info"><%= project.tasks.done.count %></span>
+          <span title="Started tasks" class="badge alert-success"><%= project.tasks.started.count %></span>
+          <span title="New tasks" class="badge alert-primary"><%= project.tasks.not_started.count %></span>
         </td>
         <td><%= project.description %></td>
           <% if can? [:update, :destroy], Project %>
