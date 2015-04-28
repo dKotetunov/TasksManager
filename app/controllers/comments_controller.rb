@@ -1,13 +1,12 @@
 class CommentsController < ApplicationController
   before_action :set_task
-  before_action :set_comment, only: [:show,:destroy,:update, :edit]
+  before_action :set_comment, only: [:show, :destroy, :update, :edit]
   def create
     @comment = @task.comments.create(params[:comment].merge(user_id: current_user.id))
     redirect_to project_task_path(@comment.project, @comment.task)
   end
 
   def destroy
-    @comment = @task.comments.find(params[:id])
     @comment.destroy
     redirect_to project_task_path(@comment.project, @comment.task)
   end

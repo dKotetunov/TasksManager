@@ -12,7 +12,9 @@
   <%  @projects.each do |project| %>
     <% if can? :read, project %>
       <tr>
-        <td><%= link_to project.name, project_tasks_path(project) %></td>
+        <td><%= link_to project.name, project_tasks_path(project) %>
+          <span class="badge"><% project.tasks.count %></span>
+        </td>
         <td><%= project.description %></td>
           <% if can? [:update, :destroy], Project %>
             <td><%= link_to 'Edit', edit_project_path(project), :class => 'btn btn-mini' %></td>

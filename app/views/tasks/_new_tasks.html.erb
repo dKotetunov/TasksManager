@@ -12,7 +12,7 @@
       <% tasks.each do |task| %>
           <ul class="list-group">
             <li class="list-group-item">
-              <%= link_to (task.name), project_task_path(@project,task) %>
+              <%= link_to task.name, project_task_path(@project,task) %>
               (<%= link_to (task.user.initials), profile_path(task.user.profile) %>)
                 <% if can? :start, task %>
               <%= link_to 'Start',project_task_start_path(@project,task), method: :patch, :class => 'btn btn-primary btn-xs pull-right' %>
