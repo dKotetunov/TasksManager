@@ -2,8 +2,10 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    alias_action :create, :read, :update, :destroy, :to => :crud
+    alias_action :create, :read, :update, :destroy, to: :crud
     can :read, Task
+    can [:read, :create], Comment
+    can [:update, :destroy], Comment, user_id: user.id
 
     if user.admin?
       can :manage, Project

@@ -14,10 +14,10 @@
             <li class="list-group-item">
               <%= link_to task.name, project_task_path(@project,task) %>
               (<%= link_to (task.user.initials), profile_path(task.user.profile) %>)
-                <% if can? :start, task %>
-              <%= link_to 'Start',project_task_start_path(@project,task), method: :patch, :class => 'btn btn-primary btn-xs pull-right' %>
-                <% end %>
-                <% if can? :destroy, Task %>
+              <% if can? :start, task %>
+                <%= link_to 'Start',project_task_start_path(@project,task), method: :patch, :class => 'btn btn-primary btn-xs pull-right' %>
+              <% end %>
+              <% if can? :destroy, Task %>
                 <%= link_to project_task_path(@project,task),method: :delete, class: 'inverse-link pull-right', data: { confirm: 'Are you sure?' } do %>
                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 <% end %>

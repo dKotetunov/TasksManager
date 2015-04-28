@@ -53,6 +53,7 @@ class TasksController < ApplicationController
 
   def set_project
     @project = Project.find(params[:project_id])
+    authorize! :read, @project
   end
 
   def set_task
