@@ -6,5 +6,5 @@ class Comment < ActiveRecord::Base
 
   delegate :project, to: :task
 
-  scope :for_comment, ->(task_id) { where(task_id: task_id) }
+  scope :for_task, ->(task_id) { where(task_id: task_id) }
 end

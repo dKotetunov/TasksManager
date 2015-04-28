@@ -21,7 +21,7 @@ class TasksController < ApplicationController
 
  def show
     @comment = Comment.new(task_id: @task.id)
-    @comments = Comment.for_comment(@task.id)
+    @comments = Comment.for_task(@task.id)
  end
 
   def start
