@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   belongs_to :role
   has_many :tasks
+  has_many :comments
   has_one :profile
 
   delegate :admin?, :moderator?, :simple_user?, to: :role
