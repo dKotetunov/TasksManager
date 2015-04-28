@@ -16,3 +16,5 @@
   <%= @task.user.fullname %>
 </p>
 <%= render partial: 'comments/comments', locals: {comment: @comment, comments: @comments} %>
+<%= render partial: 'comments/form', locals: {comment: @comment} %>
+
