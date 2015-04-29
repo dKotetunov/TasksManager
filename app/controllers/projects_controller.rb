@@ -15,22 +15,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(params[:project])
-    if params[:project][:moderator_email]
-      user = User.find_by_email(params[:project][:moderator_email])
-      if user
-        @moderator = user
-      else
-        @moderator = User.new(email: params[:project][:moderator_email],
-                              password: params[:project][:moderator_password],
-                              role: Role.moderator)
-        @moderator.skip_confirmation!
-        @moderator.save
-      end
-
-      @project.user = @moderator
-    end
-
-    if @project.valid? && @project.user.valid?
+    if @project.valid?
       @project.save
       redirect_to projects_path
     else
