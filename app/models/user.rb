@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  attr_accessible :role, :email, :password
+  attr_accessible :role, :email, :password, :profile_attributes
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :tasks
   has_many :comments
   has_one :profile
+  accepts_nested_attributes_for :profile, :allow_destroy => true
 
   delegate :admin?, :moderator?, :simple_user?, to: :role
   delegate :fullname, :initials, to: :profile
@@ -25,6 +26,6 @@ class User < ActiveRecord::Base
   end
 
   def set_default_profile
-    self.create_profile
+    self.profile || self.create_profile
   end
 end

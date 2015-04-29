@@ -16,6 +16,10 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Projects", projects_path %></li>
+            <li><%= link_to "Moderators", moderators_path %></li>
+            </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><p class="nav navbar-text">Logged as <%= current_user.email %></p></li>
             <li class="dropdown">
