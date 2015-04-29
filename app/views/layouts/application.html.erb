@@ -9,13 +9,17 @@
 <body>
 <% if current_user %>
     <nav class="navbar navbar-default navbar-inverse">
-      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="container">
         <div class="navbar-header">
             <%= link_to "TasksManager", projects_path, class: 'navbar-brand' %>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <% if current_user.admin? %>
+            <ul class="nav navbar-nav">
+              <li><%= link_to "Projects", projects_path %></li>
+              <li><%= link_to "Moderators", moderators_path %></li>
+            </ul>
+          <% end %>
           <ul class="nav navbar-nav navbar-right">
             <li><p class="nav navbar-text">Logged as <%= current_user.email %></p></li>
             <li class="dropdown">
