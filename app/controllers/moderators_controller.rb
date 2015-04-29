@@ -30,4 +30,10 @@ class ModeratorsController < ApplicationController
       render 'edit'
     end
   end
+
+  def destroy
+    @moderator = User.find(params[:id])
+    @moderator.destroy
+    redirect_to moderators_path
+  end
 end

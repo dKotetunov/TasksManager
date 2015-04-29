@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   scope :simple, -> { where(role_id: Role.user.id) }
   scope :moderator, -> { where(role_id: Role.moderator.id) }
 
+
   private
 
   def set_default_role

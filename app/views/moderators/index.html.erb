@@ -13,9 +13,12 @@
   <%  @moderator.each do |moderator| %>
           <tr>
             <td><%= moderator.profile.first_name %></td>
-            <td></td>
+            <td><%= moderator.profile.last_name %></td>
             <td><%= moderator.email %></td>
             <td><%= link_to 'Edit', edit_moderator_path(moderator), :class => 'btn btn-mini' %></td>
+            <td><%= link_to 'Destroy', moderator_path(moderator),
+                            method: :delete,
+                            data: { confirm: 'Are you sure?'}, :class => 'btn btn-mini btn-danger'  %></td>
             <% end %>
           </tr>
 
