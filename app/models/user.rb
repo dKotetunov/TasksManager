@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   after_create :set_default_profile
 
   scope :simple, -> { where(role_id: Role.user.id) }
+  scope :moderator, -> { where(role_id: Role.moderator.id) }
 
   private
 
