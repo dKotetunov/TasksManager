@@ -1,5 +1,5 @@
 class ModeratorsController < ApplicationController
-
+  before_action :set_moderator, except: [:index, :new]
   def index
     @moderator = User.moderator
   end
@@ -19,11 +19,9 @@ class ModeratorsController < ApplicationController
   end
 
   def edit
-    @moderator = User.find(params[:id])
   end
 
   def update
-    @moderator = User.find(params[:id])
     if @moderator.update_attributes(params[:user])
       redirect_to moderators_path
     else
@@ -32,8 +30,12 @@ class ModeratorsController < ApplicationController
   end
 
   def destroy
-    @moderator = User.find(params[:id])
     @moderator.destroy
     redirect_to moderators_path
+  end
+  private
+
+  def set_moderator
+    @moderator = User.find(params[:id])
   end
 end
