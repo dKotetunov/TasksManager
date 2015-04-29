@@ -1,5 +1,5 @@
 class ModeratorsController < ApplicationController
-  before_action :set_moderator, except: [:index, :new]
+  before_action :set_moderator, except: [:index, :new, :create]
   def index
     @moderator = User.moderator
   end
@@ -11,6 +11,7 @@ class ModeratorsController < ApplicationController
 
   def create
     @moderator = User.new(params[:user].merge(role: Role.moderator))
+    @moderator.skip_confirmation!
     if @moderator.save
       redirect_to moderators_path
     else
