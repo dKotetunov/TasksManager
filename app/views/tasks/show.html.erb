@@ -11,11 +11,11 @@
   <strong>Project:</strong>
   <%= @task.project.name %>
 </p>
-<% unless @task.user == nil %>
-<p>
-  <strong>User:</strong>
-  <%= @task.user.fullname %>
-</p>
+<% if @task.user %>
+  <p>
+    <strong>User:</strong>
+    <%= @task.user.fullname %>
+  </p>
 <% end %>
 
 <%= render partial: 'comments/comments', locals: {comment: @comment, comments: @comments} %>
