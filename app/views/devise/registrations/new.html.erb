@@ -8,6 +8,24 @@
         <%= devise_error_messages! %>
 
         <div class="field">
+          <% resource.build_profile if resource.profile.nil? %>
+          <%= f.fields_for :profile do |profile| %>
+            <%= profile.label :first_name %>
+            <br>
+            <%= profile.text_field :first_name %>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <% resource.build_profile if resource.profile.nil? %>
+          <%= f.fields_for :profile do |profile| %>
+            <%= profile.label :last_name %>
+            <br>
+            <%= profile.text_field :last_name %>
+          <% end %>
+        </div>
+
+        <div class="field">
           <%= f.label :email %>
           <br/>
           <%= f.email_field :email, autofocus: true %>
