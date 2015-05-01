@@ -4,11 +4,11 @@
   <div class='col-md-4'>
     <h2>Sign up</h2>
 
+    <% resource.build_profile unless resource.profile %>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
 
         <div class="field">
-          <% resource.build_profile if resource.profile.nil? %>
           <%= f.fields_for :profile do |profile| %>
             <%= profile.label :first_name %>
             <br>
@@ -17,7 +17,6 @@
         </div>
 
         <div class="field">
-          <% resource.build_profile if resource.profile.nil? %>
           <%= f.fields_for :profile do |profile| %>
             <%= profile.label :last_name %>
             <br>
