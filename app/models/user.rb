@@ -14,14 +14,10 @@ class User < ActiveRecord::Base
   delegate :admin?, :moderator?, :simple_user?, to: :role
   delegate :fullname, :initials, to: :profile
   before_create :set_default_role
-  #after_create :set_default_profile
+  after_create :set_default_profile
 
   scope :simple, -> { where(role_id: Role.user.id) }
   scope :moderator, -> { where(role_id: Role.moderator.id) }
-
-def with_profile
-  self.build_profile
-end
 
   private
 
