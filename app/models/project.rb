@@ -5,4 +5,8 @@ class Project < ActiveRecord::Base
   validates_presence_of :name
 
   attr_accessible :name, :description, :user_id
+
+  def self.search(search)
+    where("name LIKE ?", "%#{search}%")
+  end
 end

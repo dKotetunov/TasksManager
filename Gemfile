@@ -7,6 +7,7 @@ gem 'devise'
 gem 'cancancan'
 gem 'pry'
 gem 'protected_attributes'
+
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets

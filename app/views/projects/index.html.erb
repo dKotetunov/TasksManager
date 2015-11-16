@@ -1,4 +1,13 @@
 <h1>Listing projects</h1>
+<%= form_tag(projects_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Projects" %>
+    <%= submit_tag "Search" %>
+<% end %>
+<% if @something.present? %>
+    <%= render @something %>
+<% else %>
+    <p>There are no projects containing the term(s) <%= params[:search] %>.</p>
+<% end %>
 <table class="table table-striped">
   <thead>
   <tr>
