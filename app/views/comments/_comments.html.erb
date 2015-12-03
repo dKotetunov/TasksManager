@@ -7,7 +7,8 @@
       <li class="list-group-item">
         <div id="comment_initials">
           <%= comment.user.fullname %>
-          <%= comment.created_at.strftime("%e|%m|%y %H:%M") %>
+          <%= comment.created_at.to_s(:short) %>
+          <%-# also we can use comment.created_at.strftime("%e|%m|%y %H:%M") -%>
         </div>
         <div id="comment_text">
           <%= comment.text %>
