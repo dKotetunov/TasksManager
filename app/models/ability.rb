@@ -10,7 +10,8 @@ class Ability
     if user.admin?
       can :manage, Project
     elsif user.moderator?
-      can :crud, Task
+      can [:create, :read, :destroy], Task
+      can :update, Task, status: "not_started"
       can :read, Project, user_id: user.id
     elsif user.simple_user?
       can [:start, :finish], Task, user_id: user.id
