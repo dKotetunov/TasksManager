@@ -1,16 +1,24 @@
 <h2>Your profile</h2>
+
+<p>
+  <%= image_tag @profile.avatar_url.to_s %>
+</p>
+
 <p>
   <strong>First name:</strong>
   <%= @profile.first_name %>
 </p>
+
 <p>
   <strong>Last name:</strong>
   <%= @profile.last_name %>
 </p>
+
 <p>
   <strong>Gender:</strong>
   <%= @profile.gender %>
 </p>
+
 <p>
   <strong>Email:</strong>
   <%= current_user.email %>

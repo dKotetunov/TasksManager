@@ -1,10 +1,11 @@
 <div class='row'>
   <div class='col-lg-6'>
-    <%= semantic_form_for @profile do |f| %>
+    <%= semantic_form_for @profile, html: { multipart: :true } do |f| %>
       <%= f.inputs do %>
         <%= f.input :first_name %>
         <%= f.input :last_name %>
         <%= f.input :gender, as: 'radio', collection:  ["Male", "Female"] %>
+        <%= f.file_field :avatar %>
       <% end %>
       <%= f.actions do %>
         <%= f.action :submit, as: 'button', button_html: {class: "btn btn-primary"} %>
