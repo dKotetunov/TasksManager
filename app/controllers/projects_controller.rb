@@ -2,11 +2,11 @@ class ProjectsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @projects = Project.all
     if params[:search]
       @projects = Project.search(params[:search]).order("created_at DESC")
     else
       @projects = Project.all.order('created_at DESC')
+      @projects = Project.order("name").page(params[:page]).per(5)
     end
   end
 
