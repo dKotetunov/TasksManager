@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   load_and_authorize_resource
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:search]
@@ -16,38 +17,52 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
+    #@project = Project.find(params[:id])
   end
 
   def create
     @project = Project.new(params[:project])
+
+    respond_to do |format|
     if @project.valid?
       @project.save
-      redirect_to projects_path
+      format.json { head :no_content }
+      format.js
     else
       render 'new'
-    end
-  end
-
-  def update
-    @project = Project.find(params[:id])
-    if @project.update_attributes(params[:project])
-      redirect_to projects_path
-    else
-      render 'edit'
+      end
     end
   end
 
   def edit
-    @project = Project.find(params[:id])
+  end
+
+  def update
+    respond_to do |format|
+    #@project = Project.find(params[:id])
+      if @project.update_attributes(params[:project])
+      format.json { head :no_content }
+      format.js
+      else
+      render 'edit'
+      end
+    end
   end
 
   def destroy
-    @project = Project.find(params[:id])
+    #@project = Project.find(params[:id])
     @project.destroy
-
-    redirect_to projects_path
+    respond_to do |format|
+      format.js
+      format.html { redirect_to projects_path }
+      format.json { head :no_content }
+    end
   end
 
+  private
+
+  def set_project
+    @project = Project.find(params[:id])
+  end
 end
 

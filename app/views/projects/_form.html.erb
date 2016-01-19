@@ -1,6 +1,6 @@
 <div class='row'>
   <div class='col-lg-6'>
-    <%= semantic_form_for @project do |f| %>
+    <%= semantic_form_for(@project, remote: true, html: {role: "form"}) do |f| %>
        <%= f.inputs do %>
          <%= f.input :name %>
          <%= f.input :description %>

@@ -26,31 +26,13 @@
     <th colspan="3"></th>
   </tr>
   </thead>
-  <tbody>
-
-  <%  @projects.each do |project| %>
-    <% if can? :read, project %>
-      <tr>
-        <td><%= link_to project.name, project_tasks_path(project) %>
-          <span title="Done tasks" class="badge alert-info"><%= project.tasks.done.count %></span>
-          <span title="Started tasks" class="badge alert-success"><%= project.tasks.started.count %></span>
-          <span title="New tasks" class="badge alert-primary"><%= project.tasks.not_started.count %></span>
-        </td>
-        <td><%= project.description %></td>
-        <td><%= project.created_at.strftime("%e|%m|%y") %></td>
-          <% if can? [:update, :destroy], Project %>
-            <td><%= link_to 'Edit', edit_project_path(project), :class => 'btn btn-mini' %></td>
-            <td><%= link_to 'Destroy', project_path(project),
-                        method: :delete,
-                        data: { confirm: 'Are you sure?'}, :class => 'btn btn-mini btn-danger'  %></td>
-           <% end %>
-        </tr>
-      <% end %>
-    <% end %>
+  <tbody id="projects">
+  <%= render @projects %>
   </tbody>
   <%= paginate @projects %>
 </table>
 <br>
+<%= render 'dialog' %>
 <% if can? :create, Project %>
-  <%= link_to 'New project', new_project_path, :class => 'btn btn-primary' %>
+  <%= link_to 'New project', new_project_path, remote: true, class: 'btn btn-primary' %>
 <% end %>
