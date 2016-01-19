@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
   def index
     if params[:search]
       @projects = Project.search(params[:search]).order("created_at DESC")
+      @projects = Project.search(params[:search]).order("name").page(params[:page]).per(5)
     else
       @projects = Project.all.order('created_at DESC')
       @projects = Project.order("name").page(params[:page]).per(5)
