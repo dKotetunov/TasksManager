@@ -39,7 +39,6 @@ class ProjectsController < ApplicationController
 
   def update
     respond_to do |format|
-    #@project = Project.find(params[:id])
       if @project.update_attributes(params[:project])
       format.json { head :no_content }
       format.js

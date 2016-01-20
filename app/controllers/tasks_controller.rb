@@ -16,7 +16,16 @@ class TasksController < ApplicationController
 
   def create
     @task = @project.tasks.create(params[:task])
-    redirect_to project_tasks_path
+
+      respond_to do |format|
+        if @task.valid?
+          @task.save
+          format.json { head :no_content }
+          format.js
+        else
+          render 'new'
+        end
+      end
   end
 
  def show
@@ -32,7 +41,11 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to project_tasks_path
+    respond_to do |format|
+      format.js
+      format.html { redirect_to projects_tasks_path }
+      format.json { head :no_content }
+    end
   end
 
   def finish
@@ -42,10 +55,13 @@ class TasksController < ApplicationController
   end
 
   def update
+    respond_to do |format|
     if @task.update_attributes(params[:task])
-      redirect_to project_tasks_path
+      format.json { head :no_content }
+      format.js
     else
       render 'edit'
+    end
     end
   end
 
