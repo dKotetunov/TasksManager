@@ -4,8 +4,6 @@ class User < ActiveRecord::Base
   attr_accessible :role, :email, :password, :profile_attributes, :password_confirmation
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
-
-
   belongs_to :role
   has_many :tasks
   has_many :comments
