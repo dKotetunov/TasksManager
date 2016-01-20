@@ -15,11 +15,13 @@ class TasksController < ApplicationController
   end
 
   def create
+    @tasks = Task.for_project(@project.id)
+    @tasks_done = @tasks.done
+    @tasks_started = @tasks.started
+    @tasks_not_started = @tasks.not_started
     @task = @project.tasks.create(params[:task])
-
       respond_to do |format|
-        if @task.valid?
-          @task.save
+        if @task
           format.json { head :no_content }
           format.js
         else

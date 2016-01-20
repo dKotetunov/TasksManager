@@ -2,7 +2,7 @@
 $('#dialog h3').html("<i class=' glyphicon glyphicon-pencil'></i> Edit Task");
 
 // Render the edit form
-$('.modal-body').html('<%= j render("form") %>');
+$('.modal-body').html('<%= j render("form", project: @project, task: @task) %>');
 
 // Show the dynamic dialog
 $('#dialog').modal("show");
