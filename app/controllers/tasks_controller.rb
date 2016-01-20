@@ -16,8 +16,6 @@ class TasksController < ApplicationController
 
   def create
     @tasks = Task.for_project(@project.id)
-    @tasks_done = @tasks.done
-    @tasks_started = @tasks.started
     @tasks_not_started = @tasks.not_started
     @task = @project.tasks.create(params[:task])
       respond_to do |format|
@@ -57,6 +55,8 @@ class TasksController < ApplicationController
   end
 
   def update
+    @tasks = Task.for_project(@project.id)
+    @tasks_not_started = @tasks.not_started
     respond_to do |format|
     if @task.update_attributes(params[:task])
       format.json { head :no_content }

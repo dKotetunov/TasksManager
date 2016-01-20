@@ -11,7 +11,7 @@
     <div class="panel-body">
       <% tasks.each do |task| %>
           <ul class="list-group">
-            <%= render partial: 'task', locals: {task: @tasks_not_started} %>
+            <%= render partial: 'task', locals: {task: task} %>
           </ul>
       <% end %>
     </div>
