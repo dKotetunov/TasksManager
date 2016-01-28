@@ -1,9 +1,9 @@
 class Role < ActiveRecord::Base
   has_many :users
   attr_accessible :name
-  ADMIN = 'admin'
-  MODERATOR = 'moderator'
-  USER = 'user'
+  ADMIN = 'admin'.freeze
+  MODERATOR = 'moderator'.freeze
+  USER = 'user'.freeze
 
   def self.admin
     find_by_name(ADMIN)

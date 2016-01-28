@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :tasks
   has_many :comments
   has_one :profile
-  accepts_nested_attributes_for :profile, :allow_destroy => true
+  accepts_nested_attributes_for :profile, allow_destroy:  true
 
   delegate :admin?, :moderator?, :simple_user?, to: :role
   delegate :fullname, :initials, to: :profile

@@ -4,9 +4,9 @@ class Task < ActiveRecord::Base
   has_many :comments
 
   attr_accessible :name, :description, :status, :project_id, :user_id, :hours, :started_at
-  DONE = 'done'
-  STARTED = 'started'
-  NOT_STARTED = 'not_started'
+  DONE = 'done'.freeze
+  STARTED = 'started'.freeze
+  NOT_STARTED = 'not_started'.freeze
 
   before_create :set_default_status
 
@@ -16,7 +16,7 @@ class Task < ActiveRecord::Base
   scope :not_started, -> { where(status: NOT_STARTED) }
 
   def start!
-    update_attributes(status: STARTED,started_at: Time.now)
+    update_attributes(status: STARTED, started_at: Time.now)
   end
 
   def finish!

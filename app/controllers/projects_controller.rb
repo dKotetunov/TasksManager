@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
       @projects = Project.search(params[:search]).order("name").page(params[:page]).per(5)
     else
       @projects = Project.all.order('created_at DESC')
-      @projects = Project.order("name").page(params[:page]).per(5)
+      @projects = Project.order('name').page(params[:page]).per(5)
     end
   end
 
@@ -17,7 +17,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    #@project = Project.find(params[:id])
   end
 
   def create
@@ -49,7 +48,6 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    #@project = Project.find(params[:id])
     @project.destroy
     respond_to do |format|
       format.js

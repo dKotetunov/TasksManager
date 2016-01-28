@@ -20,6 +20,7 @@ gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 gem 'carrierwave'
 gem 'kaminari'
+gem 'rubocop', require: false
 #gem 'rmagick', '2.13.1'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby

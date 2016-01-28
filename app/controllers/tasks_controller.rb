@@ -29,15 +29,15 @@ class TasksController < ApplicationController
   end
 
  def show
-    @comment = Comment.new(task_id: @task.id)
-    @comments = Comment.for_task(@task.id)
+   @comment = Comment.new(task_id: @task.id)
+   @comments = Comment.for_task(@task.id)
  end
 
-  def start
-    authorize! :start, @task
-    @task.start!
-    redirect_to project_tasks_path
-  end
+ def start
+   authorize! :start, @task
+   @task.start!
+   redirect_to project_tasks_path
+ end
 
   def destroy
     @task.destroy
@@ -77,6 +77,5 @@ class TasksController < ApplicationController
   def set_task
     @task = @project.tasks.find(params[:task_id] || params[:id])
   end
-
 
 end
