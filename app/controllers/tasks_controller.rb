@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
- load_and_authorize_resource
+  load_and_authorize_resource
 
   before_action :set_project
   before_action :set_task, only: [:start, :finish, :destroy, :edit, :update, :show]
@@ -58,12 +58,12 @@ class TasksController < ApplicationController
     @tasks = Task.for_project(@project.id)
     @tasks_not_started = @tasks.not_started
     respond_to do |format|
-    if @task.update_attributes(params[:task])
-      format.json { head :no_content }
-      format.js
-    else
-      render 'edit'
-    end
+      if @task.update_attributes(params[:task])
+        format.json { head :no_content }
+        format.js
+      else
+        render 'edit'
+      end
     end
   end
 

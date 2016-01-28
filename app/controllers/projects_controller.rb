@@ -4,8 +4,8 @@ class ProjectsController < ApplicationController
 
   def index
     if params[:search]
-      @projects = Project.search(params[:search]).order("created_at DESC")
-      @projects = Project.search(params[:search]).order("name").page(params[:page]).per(5)
+      @projects = Project.search(params[:search]).order('created_at DESC')
+      @projects = Project.search(params[:search]).order('name').page(params[:page]).per(5)
     else
       @projects = Project.all.order('created_at DESC')
       @projects = Project.order('name').page(params[:page]).per(5)
@@ -21,13 +21,12 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(params[:project])
-
     respond_to do |format|
-    if @project.valid?
-      @project.save
-      format.json { head :no_content }
-      format.js
-    else
+      if @project.valid?
+        @project.save
+        format.json { head :no_content }
+        format.js
+      else
       render 'new'
       end
     end

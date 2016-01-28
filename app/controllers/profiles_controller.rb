@@ -20,4 +20,6 @@ class ProfilesController < ApplicationController
   def set_profile
     @profile = Profile.find(params[:id])
   end
+
 end
+

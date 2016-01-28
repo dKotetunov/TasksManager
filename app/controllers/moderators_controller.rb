@@ -34,6 +34,7 @@ class ModeratorsController < ApplicationController
     @moderator.destroy
     redirect_to moderators_path
   end
+
   private
 
   def set_moderator

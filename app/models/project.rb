@@ -7,6 +7,6 @@ class Project < ActiveRecord::Base
   attr_accessible :name, :description, :user_id
 
   def self.search(search)
-    where("name LIKE ?", "%#{search}%")
+    where('name LIKE ?', "%#{search}%")
   end
 end
