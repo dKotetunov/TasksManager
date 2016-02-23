@@ -1,2 +1,2 @@
 $('#dialog').modal('toggle');
-$('#new_tasks').append('<%= j render (@task) %>')
+$('#new_tasks').replaceWith("<%= escape_javascript(render partial: 'tasks/index', locals: { task: tasks }) %>");
