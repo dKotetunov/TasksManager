@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: projects
+#
+#  id          :integer          not null, primary key
+#  created_at  :datetime
+#  updated_at  :datetime
+#  name        :string(255)
+#  description :string(255)
+#  user_id     :integer
+#
+
 class ProjectsController < ApplicationController
   load_and_authorize_resource
   before_action :set_project, only: [:show, :edit, :update, :destroy]

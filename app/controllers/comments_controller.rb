@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: comments
+#
+#  id         :integer          not null, primary key
+#  text       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  user_id    :integer
+#  task_id    :integer
+#
+
 class CommentsController < ApplicationController
   load_and_authorize_resource
 
